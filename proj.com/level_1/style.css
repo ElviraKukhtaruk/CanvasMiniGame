@@ -1,0 +1,335 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+    background-color: #000;
+ }
+
+@font-face{
+  font-family: game-over;
+  src: url("../fonts/LVDCGO__.TTF");
+}
+
+@font-face{
+  font-family: Raleway-Black;
+  src: url("../fonts/Raleway-Black.ttf");
+}
+
+a{
+    text-decoration: none;
+}
+
+
+#c1{
+    margin-top: -925px;/*-1000*/
+   border: 5px solid #000;
+   position: relative;
+   z-index: 99;
+   opacity: 1;
+   transition: opacity 1s;
+   
+
+ }
+
+
+ #text{
+    font-family: sans-serif;
+ }
+
+ .heart{
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+ }
+
+ .ss{
+    margin-top: -1067px;
+    position: relative;
+    top: -23px;
+    width: 1920px;
+    transition: background-image 4s;
+    background-image: url(./img/level1/day1.png);
+    height: 1080px;
+ }
+
+ .sss{
+    display: none;
+    background-image: url(./img/level1/black-hole.png);
+    width: 512px;
+    height: 512px;
+    animation: f1 4s;
+    transform: scale(7) rotate(380deg);
+    margin: 0 auto;
+    position: relative;
+    top: 109px;
+ }
+
+ .control{
+     margin-top: -259px;
+     position: relative;
+     height: 240px;
+     z-index: 99;
+ }
+
+ .menu{
+    color: #000;
+    display: none;
+    width: 800px;
+    height: 400px;
+    z-index: 99;
+    background-color: #fff;
+    margin: 0 auto;
+    border: 10px solid gray;
+    position: relative;
+    top: -900px;
+    font-family: game-over, sans-serif;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 50px;
+ }
+
+ .coin{
+    float: right;
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    top: 100px;
+    z-index: 99;
+    top: -163px;
+    left: -20px;
+ }
+
+ .coinLen{
+    font-family: game-over;
+    position: relative;
+    top: -17px;
+    left: -1px;
+ }
+
+ .pause{
+    position: relative;
+    top: -1060px;
+    left: 60px;
+    z-index: 99;
+    float: right;
+    cursor: pointer;
+ }
+
+ .game{
+ }
+
+ .gameMenu{
+      position: relative;
+      top: 70px;
+      margin: 0 auto;
+      width: 400px;
+      height: 550px;
+      background-color: #000;
+ }
+
+ .play{
+    width: 400px;
+ }
+
+ .levels{
+    width: 400px;
+ }
+
+ .levels:hover{
+    border: 1px solid #fff;
+ }
+
+ .play:hover{
+    border: 1px solid #fff;
+ }
+
+ .butMenu{
+    margin: 0 auto;
+    margin-top: 25px;
+    display: block;
+ }
+
+ .buttons{
+    position: relative;
+    top: 90px;
+ }
+
+ button{
+    outline: none;
+    background-color: #fff;
+    border: 5px solid #000;
+    font-family:  Raleway-Black;
+    padding: 15px;
+    margin-top: 100px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 300ms all;
+ }
+
+ button:hover{
+    background-color: #000;
+    color: #fff;
+ }
+
+ @keyframes f1{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(380deg) scale(7);
+    }
+ }
+
+
+
+/*
+ .colors{
+    margin-top: 50px;
+ }
+
+ .color{
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    margin-top: 10px;
+}
+
+.color:hover{
+    transform: scale(1.2);
+}
+
+.c1{
+    background-color: red;
+    box-shadow: 0px 0px 10px red;
+
+}
+
+.c2{
+    background-color: green;
+    box-shadow: 0px 0px 10px green;
+}
+
+.c3{
+    background-color: yellow;
+        box-shadow: 0px 0px 10px yellow;
+
+}
+
+.c4{
+    background-color: pink;
+        box-shadow: 0px 0px 10px pink;
+
+}
+
+.c5{
+    background-color: blue;
+        box-shadow: 0px 0px 10px blue;
+
+}
+
+.c6{
+    background-color: black;
+        box-shadow: 0px 0px 10px black;
+      border: 1px solid #fff;
+}
+
+.c7{
+    background-color: purple;
+        box-shadow: 0px 0px 10px purple;
+
+}
+
+.c8{
+    background-color: brown;
+    box-shadow: 0px 0px 10px brown;
+
+}
+
+.c9{
+    background-color: gray;
+    box-shadow: 0px 0px 10px gray;
+
+}
+
+.c10{
+    background-color: #fff;
+    border-radius: 100px;
+    box-shadow: 0 0 5px #fff;
+}
+
+.circle{
+    background-color: #fff;
+    border: 1px solid #fff;
+    width: 5px;
+    height: 5px;
+    float: right;
+    position: relative;
+    top: 35px;
+    left: -600px;
+    border-radius: 100px;
+}
+
+#range{
+    top: 40px;
+    left: 640px;
+    position: relative;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     -o-appearance: none;
+     -ms-appearance: none;
+     border-radius:2px;
+     width: 600px;
+     height: 2px;
+     outline: none;
+     background-color: #fff;
+     box-shadow: 0px 0px 7px #fff;
+}
+
+
+
+#range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    width: 10px;
+    height: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 7px #fff;
+    cursor: pointer;
+    transition: .1s;
+}
+
+#range::-moz-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    width: 2px;
+    height: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 7px #fff;
+    cursor: pointer;
+    transition: .1s;
+}
+
+#range::-ms-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    width: 2px;
+    height: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 7px #fff;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.cross-img{
+    
+}

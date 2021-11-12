@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Levels</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="levels.css">
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+<body> 
+   <a href="level_1/level1.html"><div class="level l1"><div class="levelText"><span class="bgText">Level 1</span></div></div></a>
+   <div class="level l2"><div class="levelText"><span class="bgText">Level 2</span></div></div>
+   <div class="level l3"><div class="levelText"><span class="bgText">Level 3</span></div></div>
+   <div class="level l4"><div class="levelText"><span class="bgText">Level 4</span></div></div>
+   <div class="level l5"><div class="levelText"><span class="bgText">Level 5</span></div></div>
+   <div class="level l6"><div class="levelText"><span class="bgText">Level 6</span></div></div>
+   
+   <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+   
+
+   <script type="text/javascript">
+      var levelsCheck = localStorage.getItem("Level");
+      $(".l2").click(function(){
+         if(levelsCheck >= 1){
+            location.href = "level_2/level2.php";
+         }
+      });
+      
+   </script>
+   
+</body>
+</html>

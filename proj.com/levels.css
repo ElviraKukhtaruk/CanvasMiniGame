@@ -1,0 +1,53 @@
+body{
+  margin: 0;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+a{
+	text-decoration: none;
+}
+
+/* хром, сафари */
+body::-webkit-scrollbar { 
+	width: 0; 
+}
+
+
+@font-face{
+  font-family: game-over;
+  src: url("./fonts/LVDCGO__.TTF");
+}
+
+.level{
+	width: 100%;
+	background-image: url(./imgLevel2/imgLevel1.png);
+	height: 150px;
+	cursor: pointer;
+	transition: 500ms all;
+	color: #fff;
+}
+
+.levelText{
+	padding-top: 50px;
+	font-size: 39px;
+	font-family: game-over;
+	text-align: center;
+}
+
+.bgText{
+	background-color: #000;
+	border: 1px solid #fff;
+	padding: 20px;
+	transition: 500ms all;
+}
+
+.bgText:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+.level:hover{
+    transform: scale(1.05);
+}
+

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Level 1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   
+<div class="money">
+  <img src="./level_1/img/coin.png" width="50px"/>
+  <span class="moneyCount"></span>
+</div>
+
+<div class="gameMenu">
+  <div class="buttons">
+  <a href="level_1/level1.html"><button class="butMenu play">Play</button></a>
+  <a href="levels.html"><button class="butMenu levels">Levels</button></a>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+  if(localStorage.getItem("Money") == null){
+    $(".moneyCount").text(0);
+  }
+  else{
+    $(".moneyCount").text(localStorage.getItem("Money"));
+  }
+  
+</script>
+</body>
+</html>
+
+
+
+<!--
+
+var canvas = document.getElementById("c1");     //32*59 = 1888
+     var ctx = canvas.getContext("2d");
+     canvas.width = window.innerWidth-10;//1910 //800-80
+     canvas.height = 2000;//960
+     let score = 0;
+     let score1 = 0;     
+     let box = 32;
+     let rocket = document.getElementById("car");
+     let bg = document.getElementById("bg");
+     let text = document.getElementById("text");
+     let text2 = document.getElementById("text2");
+     let money = document.getElementsByClassName("money")[0];
+     let timer = 0;
+     var mon = 0;
+     var isPaused = false;
+
+
+     const met1 = new Image();
+     met1.src = "ma6.png";
+
+     const met2 = new Image();
+     met2.src = "m2.png";
+
+     const met3 = new Image();
+     met3.src = "m3.png";
+
+     const coin = new Image();
+     coin.src = "coin.png";
+
+     let obj = []; 
+
+     for(let i =0; i < 10; i++){
+      obj[i] = {
+        x: Math.floor((Math.random() * 59 + 1)) * box, 
+        y: Math.floor((Math.random() * (290 - 0) + 0))/*Math.floor((Math.random() * Math.floor(200+i)))*/
+      };
+    }
+
+    for(let j = 10; j < 20; j++){
+      obj[j] = {
+        x: Math.floor((Math.random() * 59 + 1)) * box, 
+        y: Math.floor((Math.random() * (690 - 290) + 290))/*Math.floor((Math.random() * Math.floor(300)))*/
+      };
+    }
+
+    for(let a = 20; a < 30; a++){
+      obj[a] = {
+        x: Math.floor((Math.random() * 59 + 1)) * box, 
+        y: Math.floor((Math.random() * (950 - 690) + 690))/*Math.floor((Math.random() * Math.floor(300)))*/
+      };
+    }
+
+    for(let b = 30; b < 40; b++){
+      obj[b] = {
+        x: Math.floor((Math.random() * 59 + 1)) * box, 
+        y: Math.floor((Math.random() * (950 - 0) + 0))/*Math.floor((Math.random() * Math.floor(300)))*/
+      };
+    }
+
+    
+
+
+    document.addEventListener("keydown", direction);
+    document.addEventListener("keyup", directionUp);
+
+    let direc;
+
+
+    function direction(event){
+
+      if(event.keyCode == 37){
+       direc = "left";
+     }
+
+     else if(event.keyCode == 39){
+       direc = "right";
+     }
+   }
+
+   function directionUp(event){
+    if(event.keyCode == 37 || event.keyCode == 39){
+     direc = null;
+   }
+ }
+
+
+
+ var lovX = 800;
+ let lovY = 1700;//1800 //930
+
+ var goIt = () => {
+  if(direc == "left"){
+   lovX -= box;
+ }
+
+ if(direc == "right"){
+   lovX += box;
+ }
+}
+
+
+
+var drawGame = () => {
+  
+  
+  
+
+  $(".play").click(function(){
+  $(".game").css("display", "block");
+  $(".gameMenu").css("display", "none");
+  isPaused = true;
+
+});
+
+  if(isPaused){
+ ctx.clearRect(0,0, canvas.width, canvas.height);
+ ctx.beginPath();
+ timer++;
+ //ctx.drawImage(bg, 0, 0);
+ 
+
+
+
+ for(let i=0; i < 10; i++){
+  ctx.beginPath();
+    //ctx.fillStyle = "red";
+    ctx.drawImage(met2, obj[i].x, obj[i].y+=5);
+
+
+    for(let dia=1668; dia < 1830; dia++){
+      if(obj[i].x == lovX+32 && obj[i].y == dia || obj[i].x == lovX+64 && obj[i].y == dia|| obj[i].x == lovX && obj[i].y == dia){
+
+        obj[i] = {
+         x: Math.floor((Math.random() * 59 + 1)) * box, 
+         y: Math.floor((Math.random() * (290 - 0) + 0))
+       };
+       score += 1;
+       //text.innerHTML = score;
+     }
+   }
+
+   $(".again").click(function(){
+      obj[i] = {
+       x: Math.floor((Math.random() * 59 + 1)) * box, 
+       y: Math.floor((Math.random() * (250 - 0) + 0))
+      };
+      isPaused = true;
+      $(".menu").css("display", "none");
+ });
+
+   if(obj[i].y > 1950){
+     obj[i] = {
+       x: Math.floor((Math.random() * 59 + 1)) * box, 
+       y: Math.floor((Math.random() * (290 - 0) + 0))
+     };
+   }
+
+ }
+
+ for(let j=10; j < 20; j++){
+  ctx.beginPath();
+    //ctx.fillStyle = "red";
+
+    ctx.drawImage(met2, obj[j].x, obj[j].y+=5);
+
+    for(let dia=1668; dia < 1830; dia++){
+      if(obj[j].x == lovX+32 && obj[j].y == dia||obj[j].x == lovX+64 && obj[j].y == dia|| obj[j].x == lovX && obj[j].y == dia){
+
+       obj[j] = {
+         x: Math.floor((Math.random() * 59 + 1)) * box, 
+         y: Math.floor((Math.random() * (690 - 290) + 290))
+       };
+
+       score += 1;
+       //text.innerHTML = score;
+     }
+   }
+
+
+    $(".again").click(function(){
+       obj[j] = {
+      x: Math.floor((Math.random() * 59 + 1)) * box, 
+      y: Math.floor((Math.random() * (690 - 290) + 290))
+    };
+      isPaused = true;
+      $(".menu").css("display", "none");
+ });
+
+   if(obj[j].y > 1950){
+     obj[j] = {
+      x: Math.floor((Math.random() * 59 + 1)) * box, 
+      y: Math.floor((Math.random() * (690 - 290) + 290))
+    };
+  }
+
+}
+
+for(let a=20; a < 30; a++){
+  ctx.beginPath();
+    //ctx.fillStyle = "red";
+    if(timer > 6000){
+     ctx.drawImage(met1, obj[a].x, obj[a].y+=5);
+   }
+   else{  
+       ctx.drawImage(met2, obj[a].x, obj[a].y+=5);//start 1100 end 1800
+     }
+
+     for(let dia=1668; dia < 1830; dia++){
+       if(obj[a].x == lovX+32 && obj[a].y == dia || obj[a].x == lovX+64 && obj[a].y == dia || obj[a].x == lovX && obj[a].y == dia){
+        obj[a] = {
+         x: Math.floor((Math.random() * 59 + 1)) * box, 
+         y: Math.floor((Math.random() * (950 - 690) + 690))
+       };
+       score += 1;
+
+
+     }
+   }
+
+    $(".again").click(function(){
+      obj[a] = {
+      x: Math.floor((Math.random() * 59 + 1)) * box, 
+      y: Math.floor((Math.random() * (950 - 690) + 690))
+    };
+      isPaused = true;
+      $(".menu").css("display", "none");
+
+ });
+
+   if(obj[a].y > 1950){
+     obj[a] = {
+      x: Math.floor((Math.random() * 59 + 1)) * box, 
+      y: Math.floor((Math.random() * (950 - 690) + 690))
+    };
+  }
+
+}
+
+for(let b=30; b < 40; b++){
+  ctx.beginPath();
+  
+  ctx.drawImage(coin, obj[b].x, obj[b].y+=5);
+
+
+  for(let dia=1668; dia < 1830; dia++){
+    if(obj[b].x == lovX+32 && obj[b].y == dia || obj[b].x == lovX+64 && obj[b].y == dia|| obj[b].x == lovX && obj[b].y == dia){
+
+      obj[b] = {
+       x: Math.floor((Math.random() * 59 + 1)) * box, 
+       y: Math.floor((Math.random() * (800 - 0) + 0))
+     };
+     mon += 1;
+
+   }
+ }
+
+ $(".again").click(function(){
+      obj[b] = {
+       x: Math.floor((Math.random() * 59 + 1)) * box, 
+       y: Math.floor((Math.random() * (250 - 0) + 0))
+      };
+      isPaused = true;
+      $(".menu").css("display", "none");
+      $(".a1").css("display", "block");
+      $(".a2").css("display", "block");
+      $(".a3").css("display", "block");
+      $(".sss").css("display", "none");
+      mon = 0;
+      score = 0;
+      timer = 0;
+
+ });
+
+ if(obj[b].y > 1950){
+   obj[b] = {
+     x: Math.floor((Math.random() * 59 + 1)) * box, 
+     y: Math.floor((Math.random() * (250 - 0) + 0))
+   };
+ }
+
+}
+
+
+
+//text.innerHTML = "Fails: " + score;
+$(".coinLen").text(mon);
+
+if(score == 1){
+  $(".a1").css("display", "none");
+}
+
+if(score == 2){
+ $(".a2").css("display", "none");
+}
+
+if(score == 3){
+ $(".a3").css("display", "none");
+ $(".exit").text("Exit");
+ $(".textMenu").text("Game Over");
+ $(".menu").css("display", "block");
+ $(".exitPause").css("display", "none");
+ isPaused = false;
+ score = 0;
+ timer = 0;
+}
+
+$(".exit").click(function(){
+  location.href = "index.html";
+});
+
+
+$(".pause").click(function(){
+  if(isPaused == true){
+    isPaused = false;
+    let men = $(".menu").css("display");
+   if(men !== "block"){
+     $(".menu").css("display", "block");
+     $(".exit").text("Exit");
+     $(".textMenu").text("Pause");
+     $(".exitPause").css("display", "inline-block");
+     $(".exitPause").click(function(){
+        $(".menu").css("display", "none");
+        isPaused = true;
+     });
+   }
+  }
+ 
+});
+
+if(timer < 1000){
+  $(".ss").css("background-image", "url(d1.png)");
+  met2.src = "m2.png";
+}
+if(timer > 1000){
+  $(".ss").css("background-image", "url(d2.png)");
+  met2.src = "m1.png";
+}
+if(timer > 2000){
+  $(".ss").css("background-image", "url(d3.png)");
+  met2.src = "m3.png";
+}
+
+if(timer > 3000){
+  $(".ss").css("background-image", "url(d4.png)");
+  met2.src = "m4.png";
+}
+
+if(timer > 4000){
+ $(".ss").css("background-image", "url(d5.png)");
+ met2.src = "m5.png";
+}
+
+if(timer > 5000){
+ $(".ss").css("background-image", "url(d6.png)");
+ met2.src = "mb6.png";
+}
+
+if(timer > 6000){
+  $(".ss").css("background-image", "url(d7.png)");
+  met2.src = "ma7.png";
+  met1.src = "mb7.png";
+}
+
+if(timer > 7000){
+  met2.src = "da.png";
+  met1.src = "da2.png";
+}
+
+if(timer > 8000){
+  met2.src = "u1.png";
+  met1.src = "u2.png";
+}
+
+if(timer > 9000){
+ $(".ss").css("background-image", "url(d8.png)");
+ $(".sss").css("display", "block");
+ $(".menu").css("display", "block");
+ $(".textMenu").text("You Are Winner");
+ $(".exit").text("Next");
+ $(".exitPause").css("display", "none");
+  isPaused = false;
+  mon = 0;
+}
+
+
+ctx.drawImage(rocket, lovX, lovY, 110, 130);
+$(".f").text(timer);
+
+
+}
+}
+
+
+
+let game = setInterval(drawGame, 20);
+let goGame = setInterval(goIt, 90);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
