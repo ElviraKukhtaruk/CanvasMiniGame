@@ -53,7 +53,7 @@ function directionUp(event){
 	}
 }
 
-let snakeX = (canvas.width-2*box)/2;
+let snakeX = Math.floor((canvas.width-2*box)/2);
 let snakeY = 1700;
 
 var goIt = () => {
